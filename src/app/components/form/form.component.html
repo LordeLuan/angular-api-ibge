@@ -1,0 +1,42 @@
+<div style="margin-left: 3rem;">
+<div class="container card shadow m-5 overflow-hidden">
+  <!-- <form class="mt-1 container" action="post"> -->
+    <fieldset class="text-center pt-2">
+        <legend style="text-shadow: 1px 1px 2px red;">Formulário de Cadastro</legend>
+    </fieldset>
+    <div class="mb-3">
+      <label for="nome" class="form-label col-2">Nome</label>
+      <input type="text" class="form-control col-6" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="sobrenome" class="form-label">Sobrenome</label>
+      <input type="text" class="form-control">
+    </div>
+    <hr class="m-4">
+    <div class="m-1 text-center row">
+      <label for="UF" class="form-label m-1 col-1">Estado/UF</label>
+        <select (change)="loadMunicipiosByUF($event)" class="m-1 col-5" name="UF" id="UF">
+          <option value="" selected>Selecione</option>
+          <option value="BA">BA</option>
+          <option value="SC">SC</option>
+          <option value="SP">SP</option>
+          <option value="PA">PA</option>
+          <option value="PR">PR</option>
+          <option value="AM">AM</option>
+          <option value="RS">RS</option>
+          <option value="GO">GO</option>
+          <option value="MA">MA</option>
+        </select>
+        <label for="cidades" class="m-1 col-1"> Cidades </label>
+          <select  name="cidades" id="cidades" class="col-4">
+            <option value="" selected>Selecione...</option>
+            <option *ngFor="let cidade of cidades$ | async" value="{{cidade.id}}">{{cidade.nome}}</option>
+          </select>
+    </div>
+      <div class="text-end px-5 p-2">
+        <button id="botaoform" type="submit" class="btn btn-dark mb-3">Cadastrar</button>
+      </div>
+  <!-- </form> -->
+</div>
+<div class="main" style="min-height: 10rem;"></div>
+</div>
